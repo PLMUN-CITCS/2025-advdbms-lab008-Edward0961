@@ -3,11 +3,10 @@ FROM `Customers` `c`
 JOIN `Orders` `o` ON `c`.`CustomerID` = `o`.`CustomerID`
 JOIN `OrderDetails` `od` ON `o`.`OrderID` = `od`.`OrderID`
 JOIN `Books` `b` ON `od`.`ISBN` = `b`.`ISBN`;
-DELETE FROM `OrderDetails` WHERE `OrderID` = 1 AND `ISBN` = '9780321765723';
-SELECT * FROM `OrderDetails` WHERE `OrderID` = 1;
 UPDATE `Books` SET `Price` = 8.99 WHERE `ISBN` = '9781234567890';
 SELECT * FROM `Books` WHERE `ISBN` = '9781234567890';
-
+DELETE FROM `OrderDetails` WHERE `OrderID` = 1 AND `ISBN` = '9780321765723';
+SELECT * FROM `OrderDetails` WHERE `OrderID` = 1;
 SELECT `a`.`Name` AS `AuthorName`, `b`.`Title` AS `BookTitle`
 FROM `Authors` `a`
 JOIN `BookAuthors` `ba` ON `a`.`AuthorID` = `ba`.`AuthorID`
